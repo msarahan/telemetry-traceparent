@@ -19,9 +19,9 @@ runs:
         script: |
           const opentelemetry = require('@opentelemetry/api');
 
-          var ctx = opentelemetry.propagation.extract(opentelemetry.context.active(), {"traceparent": ${{ inputs.traceparent }}, "tracestate": ""});
+          var ctx = opentelemetry.propagation.extract(opentelemetry.context.active(), {"traceparent": "${{ inputs.traceparent }}", "tracestate": ""});
 
           console.log("TRACEPARENT")
-          console.log(${{ inputs.traceparent }})
+          console.log("${{ inputs.traceparent }}")
           console.log("OTel context after extracting")
           console.log(ctx)
